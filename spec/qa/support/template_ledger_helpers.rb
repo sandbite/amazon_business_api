@@ -8,7 +8,7 @@ module QA
     include LedgerSync::Test::QA::LedgerHelpers
 
     def client_class
-      LedgerSync::TemplateLedger::Client
+      LedgerSync::AmazonBusinessApi::Client
     end
 
     def template_ledger_client

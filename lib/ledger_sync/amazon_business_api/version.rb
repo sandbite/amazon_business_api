@@ -2,7 +2,7 @@
 
 # :nocov:
 module LedgerSync
-  module TemplateLedger
+  module AmazonBusinessApi
     VERSION = '0.1.1'
 
     def self.version

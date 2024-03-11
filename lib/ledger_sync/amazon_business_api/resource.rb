@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module LedgerSync
-  module TemplateLedger
+  module AmazonBusinessApi
     class Resource < LedgerSync::Resource
     end
   end

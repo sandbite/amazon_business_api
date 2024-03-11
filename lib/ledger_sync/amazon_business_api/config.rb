@@ -3,7 +3,7 @@
 require_relative 'client'
 
 args = {
-  base_module: LedgerSync::TemplateLedger,
+  base_module: LedgerSync::AmazonBusinessApi,
   root_path: 'ledger_sync/amazon_business_api'
 }
 

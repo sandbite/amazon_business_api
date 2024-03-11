@@ -3,7 +3,7 @@
 require 'ledger_sync'
 
 module LedgerSync
-  module TemplateLedger
+  module AmazonBusinessApi
     def self.root(*paths)
       File.join(File.expand_path('../..', __dir__), *paths.map(&:to_s))
     end

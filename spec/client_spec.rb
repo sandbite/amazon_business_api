@@ -4,7 +4,7 @@ require 'spec_helper'
 
 support :template_ledger_helpers
 
-RSpec.describe LedgerSync::TemplateLedger::Client do
+RSpec.describe LedgerSync::AmazonBusinessApi::Client do
   include TemplateLedgerHelpers
 
   let(:api_key) { 'api_key' }

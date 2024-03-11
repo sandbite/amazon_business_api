@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe LedgerSync::TemplateLedger::SampleResource, qa: true do
+RSpec.describe LedgerSync::AmazonBusinessApi::SampleResource, qa: true do
   let(:client) { template_ledger_client }
   let(:attribute_updates) do
     {
@@ -11,7 +11,7 @@ RSpec.describe LedgerSync::TemplateLedger::SampleResource, qa: true do
   end
   # let(:record) { :sample_resource }
   let(:resource) do
-    LedgerSync::TemplateLedger::SampleResource.new(
+    LedgerSync::AmazonBusinessApi::SampleResource.new(
       Email: "#{test_run_id}@example.com",
       Name: "Test SampleResource #{test_run_id}"
     )

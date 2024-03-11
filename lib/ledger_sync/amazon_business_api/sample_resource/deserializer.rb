@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module LedgerSync
-  module TemplateLedger
+  module AmazonBusinessApi
     class SampleResource
-      class Deserializer < TemplateLedger::Deserializer
+      class Deserializer < AmazonBusinessApi::Deserializer
         attribute :ledger_id,
                   hash_attribute: 'Id'
         attribute :Name

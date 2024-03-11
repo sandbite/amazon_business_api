@@ -6,7 +6,7 @@ require 'ledger_sync/amazon_business_api/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'ledger_sync-amazon_business_api'
-  spec.version = LedgerSync::TemplateLedger::VERSION
+  spec.version = LedgerSync::AmazonBusinessApi::VERSION
   spec.authors = ['Modern Treasury']
   spec.email = ['ledgersync@moderntreasury.com']
 
@@ -29,13 +29,14 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('awesome_print', '>= 0')
   spec.add_development_dependency('bump', '~> 0.9.0')
   spec.add_development_dependency('bundler', '~> 2.1')
-  spec.add_development_dependency('byebug')
   spec.add_development_dependency('climate_control')
   spec.add_development_dependency('coveralls', '~> 0.8.23')
   spec.add_development_dependency('factory_bot', '~> 6.1.0')
   spec.add_development_dependency('rake', '~> 13.0')
   spec.add_development_dependency('rspec', '~> 3.2')
-  spec.add_development_dependency('rubocop', '>= 0')
+  spec.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
+  spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'rubocop'
   spec.add_development_dependency('webmock', '>= 0')
   spec.add_runtime_dependency('dotenv')
   spec.add_runtime_dependency('ledger_sync', '>= 1.8.1')

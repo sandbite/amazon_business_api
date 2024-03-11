@@ -3,10 +3,10 @@
 require_relative '../operation'
 
 module LedgerSync
-  module TemplateLedger
+  module AmazonBusinessApi
     class Operation
       class Find
-        include TemplateLedger::Operation::Mixin
+        include AmazonBusinessApi::Operation::Mixin
 
         private
 

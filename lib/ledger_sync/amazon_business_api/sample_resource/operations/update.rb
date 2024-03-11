@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module LedgerSync
-  module TemplateLedger
+  module AmazonBusinessApi
     class SampleResource
       module Operations
-        class Update < TemplateLedger::Operation::Update
+        class Update < AmazonBusinessApi::Operation::Update
           class Contract < LedgerSync::Ledgers::Contract
             params do
               required(:external_id).filled(:string)

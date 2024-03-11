@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 module LedgerSync
-  RSpec.describe TemplateLedger do
+  RSpec.describe AmazonBusinessApi do
     it 'has a version number' do
       expect(described_class).to respond_to(:version)
     end

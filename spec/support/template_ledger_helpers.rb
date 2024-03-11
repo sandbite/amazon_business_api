@@ -13,7 +13,7 @@ module LedgerSync
 end
 
 TEMPLATE_LEDGER_RECORD_COLLECTION = LedgerSync::Test::RecordCollection.new(
-  dir: File.join(LedgerSync::TemplateLedger.root, 'spec/support/records'),
+  dir: File.join(LedgerSync::AmazonBusinessApi.root, 'spec/support/records'),
   record_class: LedgerSync::Test::TemplateLedgerRecord
 )
 

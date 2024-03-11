@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module LedgerSync
-  module TemplateLedger
+  module AmazonBusinessApi
     class Operation
       module Mixin
         def self.included(base)
