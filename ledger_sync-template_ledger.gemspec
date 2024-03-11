@@ -2,10 +2,10 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ledger_sync/template_ledger/version'
+require 'ledger_sync/amazon_business_api/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'ledger_sync-template_ledger'
+  spec.name = 'ledger_sync-amazon_business_api'
   spec.version = LedgerSync::TemplateLedger::VERSION
   spec.authors = ['Modern Treasury']
   spec.email = ['ledgersync@moderntreasury.com']

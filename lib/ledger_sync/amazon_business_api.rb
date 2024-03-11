@@ -10,4 +10,4 @@ module LedgerSync
   end
 end
 
-require_relative 'template_ledger/config'
+require_relative 'amazon_business_api/config'

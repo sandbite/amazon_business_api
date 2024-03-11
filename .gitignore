@@ -19,3 +19,6 @@
 
 .tool-versions
 .ruby-version
+
+# JetBrains IDEs
+.idea/
