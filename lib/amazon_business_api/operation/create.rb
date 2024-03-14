@@ -14,7 +14,7 @@ module AmazonBusinessApi
           response: client.post(
             path: ledger_resource_type_for_path,
             payload: [
-              serializer.serialize(resource: resource)
+              serializer.serialize(resource:)
             ]
           )
         )

@@ -12,7 +12,7 @@ module AmazonBusinessApi
         def deserialized_resource(response:)
           deserializer.deserialize(
             hash: response,
-            resource: resource
+            resource:
           )
         end
 
@@ -30,7 +30,7 @@ module AmazonBusinessApi
               resource: deserialized_resource(
                 response: response.body
               ),
-              response: response
+              response:
             )
           else
             failure
@@ -47,7 +47,9 @@ module AmazonBusinessApi
         end
 
         def amazon_business_api_resource_type
-          @amazon_business_api_resource_type ||= client.class.ledger_resource_type_for(resource_class: resource.class)
+          @amazon_business_api_resource_type ||= client.class.ledger_resource_type_for(
+            resource_class: resource.class
+          )
         end
       end
     end
