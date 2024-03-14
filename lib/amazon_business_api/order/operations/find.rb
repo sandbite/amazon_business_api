@@ -22,22 +22,13 @@ module AmazonBusinessApi
         end
 
         def url
-          "/reports/2021-01-08/orders/#{resource.orderId}"
+          "/reports/2021-01-08/orders/#{resource.orderId}?includeLineItems=true&includeShipments=true&includeCharges=true"
         end
 
         def opts
-          {
-            query_params:
-          }
+          {}
         end
 
-        def query_params
-          {
-            includeLineItems: true,
-            includeShipments: true,
-            includeCharges: true
-          }
-        end
       end
     end
   end

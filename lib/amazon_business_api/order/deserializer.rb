@@ -2,6 +2,7 @@
 
 require_relative '../buying_customer/deserializer'
 require_relative '../money/deserializer'
+require_relative '../line_item/deserializer'
 
 module AmazonBusinessApi
   class Order
@@ -20,6 +21,7 @@ module AmazonBusinessApi
       references_one :orderPromotion, deserializer: Money::Deserializer
       references_one :orderTax, deserializer: Money::Deserializer
       references_one :orderNetTotal, deserializer: Money::Deserializer
+      references_many :lineItems, deserializer: LineItem::Deserializer
     end
   end
 end

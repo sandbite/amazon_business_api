@@ -18,7 +18,7 @@ module AmazonBusinessApi
     references_one :orderPromotion, to: Money # The total discount on the order. This includes discounts on items and shipping. We don't show shipping discounts separately for each individual order.
     references_one :orderTax, to: Money # The total taxes for the order.
     references_one :orderNetTotal, to: Money # The total amount charged for the order.
-    # TODO lineItems
+    references_many :lineItems, to: LineItem
     # TODO shipments
     # TODO charges
   end
