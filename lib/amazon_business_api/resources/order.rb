@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'shipment'
+
 module AmazonBusinessApi
   class Order < AmazonBusinessApi::Resource
     # https://developer-docs.amazon.com/amazon-business/docs/reporting-api-v1-reference-1
@@ -19,7 +21,7 @@ module AmazonBusinessApi
     references_one :orderTax, to: Money # The total taxes for the order.
     references_one :orderNetTotal, to: Money # The total amount charged for the order.
     references_many :lineItems, to: LineItem
-    # TODO shipments
+    references_many :shipments, to: Shipment
     # TODO charges
   end
 end
