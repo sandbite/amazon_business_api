@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'ledger_sync/amazon_business_api'
+require 'amazon_business_api'
 
 Dotenv.load('.env')
 

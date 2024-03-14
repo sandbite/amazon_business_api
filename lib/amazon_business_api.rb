@@ -8,4 +8,4 @@ module AmazonBusinessApi
   end
 end
 
-require_relative '../amazon_business_api/config'
+require_relative 'amazon_business_api/config'
