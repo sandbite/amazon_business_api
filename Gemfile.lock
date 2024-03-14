@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ledger_sync-amazon_business_api (0.1.1)
+    amazon_business_api (0.1.1)
       dotenv
       ledger_sync (>= 1.8.1)
       nokogiri
@@ -129,12 +129,10 @@ GEM
       resonad
       simply_serializable (>= 1.5.1)
     method_source (1.0.0)
-    mini_portile2 (2.8.5)
     minitest (5.14.3)
     multi_xml (0.6.0)
     multipart-post (2.4.0)
-    nokogiri (1.16.2)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.16.2-arm64-darwin)
       racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
@@ -218,13 +216,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amazon_business_api!
   awesome_print
   bump (~> 0.9.0)
   bundler (~> 2.1)
   climate_control
   coveralls (~> 0.8.23)
   factory_bot (~> 6.1.0)
-  ledger_sync-amazon_business_api!
   pry
   rake (~> 13.0)
   rspec (~> 3.2)
