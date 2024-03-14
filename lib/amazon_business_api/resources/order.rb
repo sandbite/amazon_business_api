@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'shipment'
+require_relative 'charge'
 
 module AmazonBusinessApi
   class Order < AmazonBusinessApi::Resource
@@ -22,6 +23,6 @@ module AmazonBusinessApi
     references_one :orderNetTotal, to: Money # The total amount charged for the order.
     references_many :lineItems, to: LineItem
     references_many :shipments, to: Shipment
-    # TODO charges
+    references_many :charges, to: Charge
   end
 end
