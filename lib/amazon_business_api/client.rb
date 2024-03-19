@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'typhoeus'
-require 'aws-sigv4'
 require_relative './errors/auth_error'
 
 module AmazonBusinessApi
@@ -81,15 +80,13 @@ module AmazonBusinessApi
     end
 
     def api(http_method, path, opts = {})
-      unsigned_request = build_request(http_method, path, opts:)
-      aws_headers = auth_headers(http_method, unsigned_request.url, unsigned_request.encoded_body)
-      signed_opts = opts.merge(header_params: aws_headers.merge(opts[:header_params] || {}))
       request = LedgerSync::Ledgers::Request.new(
-        body: signed_opts.fetch(:body, nil),
-        headers: signed_opts.fetch(:header_params, {}).merge(DEFAULT_HEADERS),
+        body: opts.fetch(:body, nil),
+        headers:  DEFAULT_HEADERS.merge({ 'x-amz-access-token' => access_token })
+                                 .merge(opts[:header_params] || {}),
         method: http_method,
         url: region[:endpoint] + path,
-        params: signed_opts.fetch(:form_params, {})
+        params: opts.fetch(:form_params, {})
       )
 
       request.perform
@@ -103,76 +100,6 @@ module AmazonBusinessApi
         method:,
         url:
       ).perform
-    end
-
-    def signed_request_headers(http_method, url, body)
-      request_config = {
-        service: 'execute-api',
-        region: region[:aws_region],
-      }
-
-      request_config[:access_key_id] = client_id  # aws_access_key_id
-      request_config[:secret_access_key] = client_secret # aws_secret_access_key
-      signer = Aws::Sigv4::Signer.new(request_config)
-      signer.sign_request(http_method: http_method.to_s, url:, body:).headers
-    end
-
-    def auth_headers(http_method, url, body)
-      signed_request_headers(http_method, url, body)
-        .merge({
-                 'x-amz-access-token' => access_token
-               })
-    end
-
-    def build_request(http_method, path, opts: {}) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
-      base_url = region[:endpoint]
-      url = base_url + path
-      http_method = http_method.to_sym.downcase
-
-      header_params = DEFAULT_HEADERS.merge(opts[:header_params] || {})
-      query_params = opts[:query_params] || {}
-      form_params = opts[:form_params] || {}
-
-      req_opts = {
-        method: http_method,
-        headers: header_params,
-        params: query_params,
-        params_encoding: nil,
-        timeout: 20,
-        ssl_verifypeer: true,
-        ssl_verifyhost: 2,
-        sslcert: nil,
-        sslkey: nil,
-        verbose: debug
-      }
-
-      if %i[post patch put delete].include?(http_method)
-        req_body = build_request_body(header_params, form_params, opts[:body])
-        req_opts.update body: req_body
-        puts "HTTP request body param ~BEGIN~\n#{req_body}\n~END~\n" if debug
-      end
-
-      Typhoeus::Request.new(url, req_opts)
-    end
-
-    def build_request_body(header_params, form_params, body) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
-      if header_params['Content-Type'] == 'application/x-www-form-urlencoded' ||
-        header_params['Content-Type'] == 'multipart/form-data'
-        data = {}
-        form_params.each do |key, value|
-          data[key] = case value
-                      when ::File, ::Array, nil
-                        value
-                      else
-                        value.to_s
-                      end
-        end
-        data
-      elsif header_params['Content-Type'] == 'application/json'
-        body.to_json
-      elsif body
-        body.is_a?(String) ? body : body.to_json
-      end
     end
 
     def exchange_auth_code_for_refresh_token(auth_code:) # rubocop:disable Metrics/MethodLength
