@@ -17,10 +17,6 @@ module AmazonBusinessApi
           orders.first
         end
 
-        def request_method
-          :get
-        end
-
         def url
           "/reports/2021-01-08/orders/#{resource.orderId}?includeLineItems=true&includeShipments=true&includeCharges=true"
         end

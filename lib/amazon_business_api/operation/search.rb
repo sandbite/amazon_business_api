@@ -4,7 +4,7 @@ require_relative '../operation'
 
 module AmazonBusinessApi
   class Operation
-    class Find
+    class Search
       include AmazonBusinessApi::Operation::Mixin
 
       def operate
@@ -22,7 +22,7 @@ module AmazonBusinessApi
       private
 
       def request_method
-        :get
+        :post
       end
 
       def response

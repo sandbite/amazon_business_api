@@ -25,8 +25,7 @@ module AmazonBusinessApi
     references_one :quantityLimits, to: QuantityLimits
     references_many :quantityPriceTiers, to: QuantityPriceTier
     # references_one :taxExclusivePrice, to: TaxExclusivePrice NOTE: Docs Missing
-    references_many :badges, to: Badge
-    references_many :buyingRestrictions, to: BuyingRestriction
+    # references_many :badges, to: Badge
+    # references_many :buyingRestrictions, to: BuyingRestriction
   end
 end
-z

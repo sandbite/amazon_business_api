@@ -4,9 +4,9 @@ module AmazonBusinessApi
   class SearchProductsByAsins
     class Serializer < AmazonBusinessApi::Serializer
       attribute :productIds
-      attribute :productRegion
-      attribute :shippingRegion
-      attribute :locale
+      # attribute :productRegion
+      # attribute :shippingRegion
+      # attribute :locale
       attribute :shippingPostalCode
       attribute :quantity
       attribute :facets

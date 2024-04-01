@@ -12,7 +12,7 @@ module AmazonBusinessApi
     attribute :asinType, type: LedgerSync::Type::String # One of STANDARD, VARIATION_PARENT, VARIATION_CHILD
     attribute :signedProductId, type: LedgerSync::Type::String
     references_many :offers, to: Offer
-    attribute :features, type: Types::Array
+    attribute :features, type: Type::Array
     references_many :editorialReviews, to: EditorialReview
     references_many :taxonomies, to: Taxonomy
     attribute :title, type: LedgerSync::Type::String
@@ -26,7 +26,7 @@ module AmazonBusinessApi
     # attribute :productVariations, type: LedgerSync::Type::String
     # attribute :customerReviewsSummary, type: LedgerSync::Type::String
     attribute :productDescription, type: LedgerSync::Type::String
-    attribute :upcValues, type: Types::Array
-    attribute :eanValues, type: Types::Array
+    attribute :upcValues, type: Type::Array
+    attribute :eanValues, type: Type::Array
   end
 end
