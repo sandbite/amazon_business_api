@@ -3,7 +3,7 @@
 module AmazonBusinessApi
   class Money
     class Deserializer < AmazonBusinessApi::Deserializer
-      attribute :currencyCode
+      attribute :currency_code, hash_attribute: :currencyCode
       attribute :amount
     end
   end

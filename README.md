@@ -32,3 +32,18 @@ During development of this gem you may opt to use these directly from your `.env
 client = AmazonBusinessApi::Client.new_from_env
 ```
 The access token is persisted in your .env file and refreshed when it expires.
+
+Here's how you can use the client to fetch a specific order (Reporting API):
+```ruby
+client = AmazonBusinessApi::Client.new_from_env
+resource = AmazonBusinessApi::Order.new(
+  order_id: '123-45678912-3445567'
+)
+
+operation = AmazonBusinessApi::Order::Operations::Find.new(
+  client: client,
+  resource: resource
+)
+
+operation.perform
+```

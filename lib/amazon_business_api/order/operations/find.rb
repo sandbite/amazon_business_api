@@ -6,7 +6,7 @@ module AmazonBusinessApi
       class Find < AmazonBusinessApi::Operation::Find
         class Contract < LedgerSync::Ledgers::Contract
           params do
-            required(:orderId).filled(:string)
+            required(:order_id).filled(:string)
           end
         end
 
@@ -18,7 +18,7 @@ module AmazonBusinessApi
         end
 
         def url
-          "/reports/2021-01-08/orders/#{resource.orderId}?includeLineItems=true&includeShipments=true&includeCharges=true"
+          "/reports/2021-01-08/orders/#{resource.order_id}?includeLineItems=true&includeShipments=true&includeCharges=true"
         end
 
         def opts
