@@ -9,11 +9,11 @@ module AmazonBusinessApi
   class SearchProductResult < AmazonBusinessApi::Resource
     # https://developer-docs.amazon.com/amazon-business/docs/product-search-api-v1-reference#productsresult
     attribute :asin, type: LedgerSync::Type::String
-    attribute :asinType, type: LedgerSync::Type::String # One of STANDARD, VARIATION_PARENT, VARIATION_CHILD
-    attribute :signedProductId, type: LedgerSync::Type::String
+    attribute :asin_type, type: LedgerSync::Type::String # One of STANDARD, VARIATION_PARENT, VARIATION_CHILD
+    attribute :signed_product_id, type: LedgerSync::Type::String
     references_many :offers, to: Offer
     attribute :features, type: Type::Array
-    references_many :editorialReviews, to: EditorialReview
+    references_many :editorial_reviews, to: EditorialReview
     references_many :taxonomies, to: Taxonomy
     attribute :title, type: LedgerSync::Type::String
     attribute :url, type: LedgerSync::Type::String
@@ -25,8 +25,8 @@ module AmazonBusinessApi
     # attribute :productDetails, type: LedgerSync::Type::String
     # attribute :productVariations, type: LedgerSync::Type::String
     # attribute :customerReviewsSummary, type: LedgerSync::Type::String
-    attribute :productDescription, type: LedgerSync::Type::String
-    attribute :upcValues, type: Type::Array
-    attribute :eanValues, type: Type::Array
+    attribute :product_description, type: LedgerSync::Type::String
+    attribute :upc_values, type: Type::Array
+    attribute :ean_values, type: Type::Array
   end
 end

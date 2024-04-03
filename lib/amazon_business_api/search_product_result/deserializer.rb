@@ -6,18 +6,18 @@ module AmazonBusinessApi
   class SearchProductResult
     class Deserializer < AmazonBusinessApi::Deserializer
       attribute :asin
-      attribute :asinType
-      attribute :signedProductId
-      # references_many :offers, deserializer: Offer::Deserializer
+      attribute :asin_type, hash_attribute: :asinType
+      attribute :signed_product_id, hash_attribute: :signedProductId
+      references_many :offers, deserializer: Offer::Deserializer, hash_attribute: 'includedDataTypes.OFFERS'
       attribute :features
       # references_many :editorialReviews, deserializer: EditorialReview::Deserializer
       # references_many :taxonomies, deserializer: Taxonomy::Deserializer
       attribute :title
       attribute :url
       attribute :format
-      attribute :productDescription
-      attribute :upcValues
-      attribute :eanValues
+      attribute :product_description, hash_attribute: :productDescription
+      attribute :upc_values, hash_attribute: :upcValues
+      attribute :ean_values, hash_attribute: :eanValues
     end
   end
 end

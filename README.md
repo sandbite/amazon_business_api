@@ -33,14 +33,32 @@ client = AmazonBusinessApi::Client.new_from_env
 ```
 The access token is persisted in your .env file and refreshed when it expires.
 
-Here's how you can use the client to fetch a specific order (Reporting API):
+## Reporting API
+Fetch details of a single order:
 ```ruby
-client = AmazonBusinessApi::Client.new_from_env
 resource = AmazonBusinessApi::Order.new(
   order_id: '123-45678912-3445567'
 )
 
 operation = AmazonBusinessApi::Order::Operations::Find.new(
+  client: client,
+  resource: resource
+)
+
+operation.perform
+```
+
+## Search API
+Search products by ASINS:
+```ruby
+resource = AmazonBusinessApi::SearchProductsByAsins.new(
+  product_ids: ['B0BV16GZSC'],
+  shipping_postal_code: '08844',
+  quantity: 2,
+  facets: ['OFFERS']
+)
+
+operation = AmazonBusinessApi::SearchProductsByAsins::Operations::Search.new(
   client: client,
   resource: resource
 )

@@ -3,9 +3,9 @@
 module AmazonBusinessApi
   class Merchant < AmazonBusinessApi::Resource
     # https://developer-docs.amazon.com/amazon-business/docs/product-search-api-v1-reference#merchant
-    attribute :merchantId, type: LedgerSync::Type::String
+    attribute :merchant_id, type: LedgerSync::Type::String
     attribute :name, type: LedgerSync::Type::String
-    attribute :meanFeedbackRating, type: LedgerSync::Type::Float
-    attribute :totalFeedbackCount, type: LedgerSync::Type::Integer
+    attribute :mean_feedback_rating, type: LedgerSync::Type::Float
+    attribute :total_feedback_count, type: LedgerSync::Type::Integer
   end
 end
