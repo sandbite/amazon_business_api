@@ -7,7 +7,7 @@ module AmazonBusinessApi
       # attribute :productRegion
       # attribute :shippingRegion
       # attribute :locale
-      attribute :shipping_postal_code, resource_attribute: :shippingPostalCode
+      attribute :shippingPostalCode, resource_attribute: :shipping_postal_code
       attribute :quantity
       attribute :facets
     end

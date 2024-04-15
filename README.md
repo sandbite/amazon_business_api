@@ -65,3 +65,17 @@ operation = AmazonBusinessApi::SearchProductsByAsins::Operations::Search.new(
 
 operation.perform
 ```
+
+Search products by keywords:
+```ruby
+resource = AmazonBusinessApi::SearchProductsByKeyword.new(
+  keywords: 'iphone 14 pro',
+)
+
+operation = AmazonBusinessApi::SearchProductsByKeyword::Operations::Search.new(
+  client: client,
+  resource: resource
+)
+
+operation.perform
+```
