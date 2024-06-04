@@ -15,8 +15,7 @@ client = AmazonBusinessApi::Client.new(
   refresh_token: 'your_refresh_token',
   client_id: 'your_client_id',
   client_secret: 'your_client_secret',
-  aws_access_key_id: 'your_aws_access_key_id',
-  aws_secret_access_key: 'your_aws_secret_access_key',
+  email: 'your_email',
   # if you skip setting the following lambdas, the client will request a new token before each API call
   get_access_token: ->(access_token_key) { Rails.cache.read("AMAZON_BUSINESS_API_TOKEN-#{access_token_key}") },
   save_access_token: ->(access_token_key, token) { Rails.cache.write(
