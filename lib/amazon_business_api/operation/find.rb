@@ -8,7 +8,7 @@ module AmazonBusinessApi
       include AmazonBusinessApi::Operation::Mixin
 
       def operate
-        return failure(response.body&.[]('errors') || 'Amazon Business API request failed') if response.failure?
+        return failure(error) if response.failure?
 
         success(
           resource: deserializer.deserialize(
@@ -39,6 +39,17 @@ module AmazonBusinessApi
 
       def opts
         raise NotImplementedError, self.class.name
+      end
+
+      def error
+        errors = response.body&.[]('errors')
+        return StandardError.new('Amazon Business API request failed') if errors.nil?
+
+        message = errors.map do |error|
+          "#{error['code']}: #{error['message']}"
+        end.join(' ')
+
+        StandardError.new(message)
       end
     end
   end
