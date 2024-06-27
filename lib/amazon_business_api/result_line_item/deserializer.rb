@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_relative '../accepted_item/deserializer'
+require_relative '../rejected_item/deserializer'
+
 module AmazonBusinessApi
   class ResultLineItem
     class Deserializer < AmazonBusinessApi::Deserializer

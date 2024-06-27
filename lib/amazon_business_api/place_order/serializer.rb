@@ -3,7 +3,7 @@
 module AmazonBusinessApi
   class PlaceOrder
     class Serializer < AmazonBusinessApi::Serializer
-      attribute :externalId
+      attribute :externalId, resource_attribute: :external_id
     end
   end
 end

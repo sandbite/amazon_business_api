@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
-require_relative '../buying_customer/deserializer'
-require_relative '../money/deserializer'
-require_relative '../line_item/deserializer'
-require_relative '../shipment/deserializer'
-require_relative '../charge/deserializer'
+require_relative '../result_line_item/deserializer'
 
 module AmazonBusinessApi
   class PlaceOrder
     class Deserializer < AmazonBusinessApi::Deserializer
-      references_many :line_items, deserializer: LineItem::Deserializer, hash_attribute: :lineItems
+      references_many :line_items, deserializer: ResultLineItem::Deserializer, hash_attribute: :lineItems
+      references_many :acceptance_artifacts, deserializer: AcceptanceArtifact::Deserializer, hash_attribute: :acceptanceArtifacts
+      references_many :rejection_artifacts, deserializer: RejectionArtifact::Deserializer, hash_attribute: :rejectionArtifacts
     end
   end
 end
