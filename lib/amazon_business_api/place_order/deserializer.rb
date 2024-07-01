@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative '../result_line_item/deserializer'
+require_relative '../acceptance_artifact/deserializer'
+require_relative '../rejection_artifact/deserializer'
 
 module AmazonBusinessApi
   class PlaceOrder
