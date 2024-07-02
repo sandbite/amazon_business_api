@@ -7,7 +7,7 @@ require_relative '../rejection_artifact/deserializer'
 module AmazonBusinessApi
   class PlaceOrder
     class Deserializer < AmazonBusinessApi::Deserializer
-      references_many :line_items, deserializer: ResultLineItem::Deserializer, hash_attribute: :lineItems
+      references_many :result_line_items, deserializer: ResultLineItem::Deserializer, hash_attribute: :lineItems
       references_many :acceptance_artifacts, deserializer: AcceptanceArtifact::Deserializer, hash_attribute: :acceptanceArtifacts
       references_many :rejection_artifacts, deserializer: RejectionArtifact::Deserializer, hash_attribute: :rejectionArtifacts
     end
