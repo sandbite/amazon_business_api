@@ -4,12 +4,6 @@ module AmazonBusinessApi
   class PlaceOrder
     module Operations
       class Create < AmazonBusinessApi::Operation::Create
-        class Contract < LedgerSync::Ledgers::Contract
-          params do
-            required(:external_id).filled(:string)
-          end
-        end
-
         private
 
         def url

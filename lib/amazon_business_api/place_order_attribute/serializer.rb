@@ -6,6 +6,7 @@ require_relative '../buying_option_reference/serializer'
 module AmazonBusinessApi
   class PlaceOrderAttribute
     class Serializer < AmazonBusinessApi::Serializer
+      attribute :externalId, resource_attribute: :external_id
       attribute :attributeType, resource_attribute: :attribute_type
       attribute :productReference, serializer: ProductReference::Serializer, resource_attribute: :product_reference
       attribute :buyingOptionReference, serializer: BuyingOptionReference::Serializer, resource_attribute: :buying_option_reference

@@ -3,6 +3,7 @@
 module AmazonBusinessApi
   class Address
     class Serializer < AmazonBusinessApi::Serializer
+      attribute :externalId, resource_attribute: :external_id
       attribute :addressType, resource_attribute: :address_type
       attribute :fullName, resource_attribute: :full_name
       attribute :phoneNumber, resource_attribute: :phone_number
