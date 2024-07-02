@@ -1,20 +1,19 @@
 # frozen_string_literal: true
 
+require_relative '../request_line_item/serializer'
+require_relative '../place_order_attribute/serializer'
+require_relative '../place_order_expectation/serializer'
+
 module AmazonBusinessApi
   class PlaceOrder
     class Serializer < AmazonBusinessApi::Serializer
       attribute :externalId, resource_attribute: :external_id
-      # attribute :lineItems, resource_attribute: :line_items
-      # attribute :attributes, resource_attribute: :place_order_attributes
-      # attribute :expectations, resource_attribute: :place_order_expectations
-
-      def serialize(resource:)
-        hash = super
-        hash[:lineItems] = resource.line_items.map { |item| RequestLineItem::Serializer.new.serialize(resource: item) }
-        hash[:attributes] = resource.place_order_attributes.map { |attr| PlaceOrderAttribute::Serializer.new.serialize(resource: attr) }
-        hash[:expectations] = resource.place_order_expectations.map { |exp| PlaceOrderExpectation::Serializer.new.serialize(resource: exp) }
-        hash
-      end
+      references_many :lineItems, resource_attribute: :line_items, serializer: RequestLineItem::Serializer
+      references_many :attributes, resource_attribute: :place_order_attributes, serializer: PlaceOrderAttribute::Serializer
+      references_many :expectations, resource_attribute: :place_order_expectations, serializer: PlaceOrderExpectation::Serializer
     end
   end
 end
+
+
+

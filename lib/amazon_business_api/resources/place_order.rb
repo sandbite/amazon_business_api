@@ -11,6 +11,7 @@ module AmazonBusinessApi
     references_many :result_line_items, to: ResultLineItem
     references_many :acceptance_artifacts, to: AcceptanceArtifact
     references_many :rejection_artifacts, to: RejectionArtifact
+
     references_many :line_items, to: RequestLineItem
     references_many :place_order_attributes, to: PlaceOrderAttribute
     references_many :place_order_expectations, to: PlaceOrderExpectation
