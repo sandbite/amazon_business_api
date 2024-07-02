@@ -82,7 +82,7 @@ module AmazonBusinessApi
     def headers
       {
         'x-amz-access-token' => access_token,
-        'x-amz-user-email' => ENV['AMAZON_BUSINESS_API_EMAIL']
+        'x-amz-user-email' => email
       }
     end
 

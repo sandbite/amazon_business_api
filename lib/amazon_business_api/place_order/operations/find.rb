@@ -12,10 +12,6 @@ module AmazonBusinessApi
 
         private
 
-        def hash_to_deserialize
-          response.body
-        end
-
         def url
           "/ordering/2022-10-30/orders/#{resource.external_id}"
         end

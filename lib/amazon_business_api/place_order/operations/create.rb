@@ -12,12 +12,8 @@ module AmazonBusinessApi
 
         private
 
-        def ledger_resource_type_for_path
-          "/ordering/2022-10-30/orders"
-        end
-
         def url
-          ledger_resource_type_for_path
+          "/ordering/2022-10-30/orders"
         end
 
         def opts
