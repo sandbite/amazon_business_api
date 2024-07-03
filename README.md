@@ -78,3 +78,137 @@ operation = AmazonBusinessApi::SearchProductsByKeyword::Operations::Search.new(
 
 operation.perform
 ```
+
+## Ordering API
+Fetch an order (not used, prefer `ReportingAPI fetch`):
+```ruby
+client = AmazonBusinessApi::Client.new_from_env
+resource = AmazonBusinessApi::PlaceOrder.new(external_id: '...')
+
+
+operation = AmazonBusinessApi::PlaceOrder::Operations::Find.new(
+  client: client,
+  resource: resource
+)
+
+operation.perform
+```
+
+Create an order:
+```ruby
+client = AmazonBusinessApi::Client.new_from_env
+
+place_order = AmazonBusinessApi::PlaceOrder.new(
+  external_id: '...',
+  line_items: [
+    AmazonBusinessApi::RequestLineItem.new(
+      external_id: 5,
+      quantity: 1,
+      place_order_attributes: [
+        AmazonBusinessApi::PlaceOrderAttribute.new(
+          attribute_type: 'SelectedProductReference',
+          product_reference: AmazonBusinessApi::ProductReference.new(
+            id: 'B07WJ5D3H4',
+            product_reference_type: 'ProductIdentifier'
+          )
+        ),
+        AmazonBusinessApi::PlaceOrderAttribute.new(
+          attribute_type: 'SelectedBuyingOptionReference',
+          buying_option_reference: AmazonBusinessApi::BuyingOptionReference.new(
+            id: '9rdygu2kOGsBrFGh...',
+            buying_option_reference_type: 'BuyingOptionIdentifier'
+          )
+        )
+      ],
+      place_order_expectations: [
+        AmazonBusinessApi::PlaceOrderExpectation.new(
+          expectation_type: 'ExpectedUnitPrice',
+          amount: AmazonBusinessApi::Amount.new(
+            currency_code: 'USD',
+            amount: 240
+          )
+        ),
+        AmazonBusinessApi::PlaceOrderExpectation.new(
+          expectation_type: 'ExpectedCharge',
+          amount: AmazonBusinessApi::Amount.new(
+            currency_code: 'USD',
+            amount: 500
+          ),
+          source: 'SUBTOTAL'
+        ),
+        AmazonBusinessApi::PlaceOrderExpectation.new(
+          expectation_type: 'ExpectedCharge',
+          amount: AmazonBusinessApi::Amount.new(
+            currency_code: 'USD',
+            amount: 20
+          ),
+          source: 'TAX'
+        ),
+        AmazonBusinessApi::PlaceOrderExpectation.new(
+          expectation_type: 'ExpectedCharge',
+          amount: AmazonBusinessApi::Amount.new(
+            currency_code: 'USD',
+            amount: 100
+          ),
+          source: 'SHIPPING'
+        )
+      ]
+    )
+  ],
+  place_order_attributes: [
+    AmazonBusinessApi::PlaceOrderAttribute.new(
+      attribute_type: 'PurchaseOrderNumber',
+      purchase_order_number: 'Direct Order test 1'
+    ),
+    AmazonBusinessApi::PlaceOrderAttribute.new(
+      attribute_type: 'BuyerReference',
+      user_reference: AmazonBusinessApi::UserReference.new(
+        user_reference_type: 'UserEmail',
+        email_address: 'your_email' # Should be present in the group below
+      )
+    ),
+    AmazonBusinessApi::PlaceOrderAttribute.new(
+      attribute_type: 'BuyingGroupReference',
+      group_reference: AmazonBusinessApi::GroupReference.new(
+        group_reference_type: 'GroupIdentity',
+        identifier: 'your_group_id' # Should be created on AMZ Business Interface
+      )
+    ),
+    AmazonBusinessApi::PlaceOrderAttribute.new(
+      attribute_type: 'Region',
+      region: 'US' # ['US', 'UK']
+    ),
+    AmazonBusinessApi::PlaceOrderAttribute.new(
+      attribute_type: 'SelectedPaymentMethodReference',
+      payment_method_reference: AmazonBusinessApi::PaymentMethodReference.new(
+        payment_method_reference_type: 'StoredPaymentMethod'
+      )
+    ),
+    AmazonBusinessApi::PlaceOrderAttribute.new(
+      attribute_type: 'ShippingAddress',
+      address: AmazonBusinessApi::Address.new(
+        address_type: 'PhysicalAddress',
+        full_name: 'Test User',
+        phone_number: '2066461000',
+        company_name: '',
+        address_line1: '325 9th Avenue North',
+        address_line2: '',
+        city: 'Seattle',
+        state_or_region: 'WA',
+        postal_code: '98109',
+        country_code: 'US'
+      )
+    ),
+    AmazonBusinessApi::PlaceOrderAttribute.new(
+      attribute_type: 'TrialMode' # Sandbox mode
+    )
+  ]
+)
+
+operation = AmazonBusinessApi::PlaceOrder::Operations::Create.new(
+  client: client,
+  resource: place_order
+)
+
+operation.perform
+```
