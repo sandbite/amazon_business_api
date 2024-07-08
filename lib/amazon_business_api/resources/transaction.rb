@@ -7,7 +7,7 @@ require_relative 'transaction_line_item'
 
 module AmazonBusinessApi
   class Transaction < AmazonBusinessApi::Resource
-    # https://developer-docs.amazon.com/amazon-business/docs/reporting-api-v1-reference-1
+    # https://developer-docs.amazon.com/amazon-business/docs/reconciliation-api-v1-reference
     attribute :marketplace_id, type: LedgerSync::Type::String
     attribute :transaction_date, type: LedgerSync::Type::String
     attribute :feed_date, type: LedgerSync::Type::String
@@ -16,7 +16,7 @@ module AmazonBusinessApi
     attribute :ship_tax_rate, type: LedgerSync::Type::String
     attribute :gift_wrap_tax_rate, type: LedgerSync::Type::String
     attribute :legal_entity_name, type: LedgerSync::Type::String
-    attribute :purchasing_gustomer_group_name, type: LedgerSync::Type::String
+    attribute :purchasing_customer_group_name, type: LedgerSync::Type::String
     references_one :amount, to: Money
     attribute :payment_instrument_type, type: LedgerSync::Type::String
     attribute :payment_instrument_last4_digits, type: LedgerSync::Type::String

@@ -2,7 +2,7 @@
 
 module AmazonBusinessApi
   class AssociatedTransactionDetail < AmazonBusinessApi::Resource
-    # https://developer-docs.amazon.com/amazon-business/docs/reporting-api-v1-reference-1
+    # https://developer-docs.amazon.com/amazon-business/docs/reconciliation-api-v1-reference
     attribute :associated_transaction_id, type: LedgerSync::Type::String
   end
 end

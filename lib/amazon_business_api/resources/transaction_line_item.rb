@@ -4,7 +4,7 @@ require_relative 'money'
 
 module AmazonBusinessApi
   class TransactionLineItem < AmazonBusinessApi::Resource
-    # https://developer-docs.amazon.com/amazon-business/docs/reporting-api-v1-reference-1
+    # https://developer-docs.amazon.com/amazon-business/docs/reconciliation-api-v1-reference
     attribute :refund_reason, type: LedgerSync::Type::String
     references_one :total_amount, to: Money
     references_one :principal_amount, to: Money

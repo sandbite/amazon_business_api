@@ -14,8 +14,7 @@ module AmazonBusinessApi
         private
 
         def hash_to_deserialize
-          reconciliation = response.body['transactions'] || []
-          reconciliation.first # TODO ?????
+          response.body || []
         end
 
         def url

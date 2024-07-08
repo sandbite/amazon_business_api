@@ -208,3 +208,41 @@ operation = AmazonBusinessApi::PlaceOrder::Operations::Create.new(
 
 operation.perform
 ```
+
+## Reconciliation API
+Returns a paginated list of business transactions with feed dates that fall within the date range that you specify:
+```ruby
+resource = AmazonBusinessApi::Reconciliation.new(
+  feed_start_date: '2020-05-01T00:00:00Z',
+  feed_end_date: '2022-03-30T00:00:00Z'
+)
+
+
+operation = AmazonBusinessApi::Reconciliation::Operations::Find.new(
+  client: client,
+  resource: resource
+)
+
+operation.perform
+```
+
+Returns the invoice details for the order line items provided in the request:
+```ruby
+resource = AmazonBusinessApi::ReconciliationDetail.new(
+  external_id: 1,
+  order_line_items: [
+    AmazonBusinessApi::OrderLineItem.new(
+      order_id: '113-0175041-7862644',
+      order_line_item_id: '54679693733441',
+      shipment_id: 'TvhKHw7fc'
+    )
+  ]
+)
+
+operation = AmazonBusinessApi::ReconciliationDetail::Operations::Find.new(
+  client: client,
+  resource: resource
+)
+
+operation.perform
+```

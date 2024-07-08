@@ -16,7 +16,7 @@ module AmazonBusinessApi
       attribute :ship_tax_rate, hash_attribute: :shipTaxRate
       attribute :gift_wrap_tax_rate, hash_attribute: :giftWrapTaxRate
       attribute :legal_entity_name, hash_attribute: :legalEntityName
-      attribute :purchasing_gustomer_group_name, hash_attribute: :purchasingCustomerGroupName
+      attribute :purchasing_customer_group_name, hash_attribute: :purchasingCustomerGroupName
       references_one :amount, deserializer: Money, hash_attribute: :amount
       attribute :payment_instrument_type, hash_attribute: :paymentInstrumentType
       attribute :payment_instrument_last4_digits, hash_attribute: :paymentInstrumentLast4Digits
