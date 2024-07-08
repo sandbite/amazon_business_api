@@ -79,10 +79,17 @@ module AmazonBusinessApi
       data
     end
 
+    def headers
+      {
+        'x-amz-access-token' => access_token,
+        'x-amz-user-email' => email
+      }
+    end
+
     def api(http_method, path, opts = {})
       request = LedgerSync::Ledgers::Request.new(
         body: opts.fetch(:body, nil),
-        headers:  DEFAULT_HEADERS.merge({ 'x-amz-access-token' => access_token })
+        headers:  DEFAULT_HEADERS.merge(headers)
                                  .merge(opts[:header_params] || {}),
         method: http_method,
         url: region[:endpoint] + path,
