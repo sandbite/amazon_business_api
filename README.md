@@ -82,9 +82,7 @@ operation.perform
 ## Ordering API
 Fetch an order (not used, prefer `ReportingAPI fetch`):
 ```ruby
-client = AmazonBusinessApi::Client.new_from_env
 resource = AmazonBusinessApi::PlaceOrder.new(external_id: '...')
-
 
 operation = AmazonBusinessApi::PlaceOrder::Operations::Find.new(
   client: client,
@@ -96,9 +94,7 @@ operation.perform
 
 Create an order:
 ```ruby
-client = AmazonBusinessApi::Client.new_from_env
-
-place_order = AmazonBusinessApi::PlaceOrder.new(
+resource = AmazonBusinessApi::PlaceOrder.new(
   external_id: '...',
   line_items: [
     AmazonBusinessApi::RequestLineItem.new(
@@ -207,7 +203,7 @@ place_order = AmazonBusinessApi::PlaceOrder.new(
 
 operation = AmazonBusinessApi::PlaceOrder::Operations::Create.new(
   client: client,
-  resource: place_order
+  resource: resource
 )
 
 operation.perform
