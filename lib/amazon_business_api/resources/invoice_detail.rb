@@ -15,8 +15,8 @@ module AmazonBusinessApi
     attribute :invoice_type, type: LedgerSync::Type::String
     attribute :associated_invoice_number, type: LedgerSync::Type::String
     attribute :associated_invoice_date, type: LedgerSync::Type::String
-    references_one :invoice_issuer, to: PhysicalAddress
-    references_one :bill_to_address, to: InvoiceIssuerDetail
+    references_one :invoice_issuer, to: InvoiceIssuerDetail
+    references_one :bill_to_address, to: PhysicalAddress
     references_one :seller_information, to: MerchantDetail
     attribute :order_date, type: LedgerSync::Type::String
     attribute :currency_code, type: LedgerSync::Type::String

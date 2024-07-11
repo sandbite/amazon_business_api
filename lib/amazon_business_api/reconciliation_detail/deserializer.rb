@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../transaction/deserializer'
+require_relative '../invoice_details_by_order_line_item/deserializer'
 
 module AmazonBusinessApi
   class ReconciliationDetail

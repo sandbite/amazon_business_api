@@ -27,6 +27,3 @@ module AmazonBusinessApi
     end
   end
 end
-
-# CF vim /home/michou/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/ledger_sync-2.6.0/lib/ledger_sync/serialization/deserializer_attribute.rb
-# CF vim /home/michou/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/ledger_sync-2.6.0/lib/ledger_sync/error/resource_errors.rb
