@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'shipment'
-require_relative 'charge'
+require_relative '../shipment'
+require_relative '../charge'
 
 module AmazonBusinessApi
   class Order < AmazonBusinessApi::Resource
