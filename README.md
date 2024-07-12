@@ -36,7 +36,7 @@ The access token is persisted in your .env file and refreshed when it expires.
 Fetch details of a single order:
 ```ruby
 resource = AmazonBusinessApi::Order.new(
-  order_id: '123-45678912-3445567'
+  order_id: '113-2278894-6960227'
 )
 
 operation = AmazonBusinessApi::Order::Operations::Find.new(

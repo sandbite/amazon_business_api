@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'common/money'
+require_relative '../common/money'
 require_relative 'seller'
-require_relative '../types/array'
+require_relative '../../types/array'
 
 module AmazonBusinessApi
   class LineItem < AmazonBusinessApi::Resource

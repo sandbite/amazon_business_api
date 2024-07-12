@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'common/money'
+require_relative '../common/money'
 
 module AmazonBusinessApi
   class Charge < AmazonBusinessApi::Resource

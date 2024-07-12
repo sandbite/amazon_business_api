@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../delivery_information/deserializer'
-require_relative '../common/money/deserializer'
+require_relative '../../common/money/deserializer'
 
 module AmazonBusinessApi
   class Shipment
