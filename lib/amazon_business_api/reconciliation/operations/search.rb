@@ -3,7 +3,7 @@
 module AmazonBusinessApi
   class Reconciliation
     module Operations
-      class Find < AmazonBusinessApi::Operation::Find
+      class Search < AmazonBusinessApi::Operation::Search
         class Contract < LedgerSync::Ledgers::Contract
           params do
             required(:feed_start_date).filled(:string)
@@ -12,6 +12,10 @@ module AmazonBusinessApi
         end
 
         private
+
+        def request_method
+          :get
+        end
 
         def hash_to_deserialize
           response.body || []
