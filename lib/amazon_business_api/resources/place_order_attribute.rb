@@ -9,7 +9,7 @@ require_relative 'address'
 
 module AmazonBusinessApi
   class PlaceOrderAttribute < AmazonBusinessApi::Resource
-    # https://developer-docs.amazon.com/amazon-business/docs/reporting-api-v1-reference-1
+    # https://developer-docs.amazon.com/amazon-business/docs/ordering-api-v1-reference
     attribute :attribute_type, type: LedgerSync::Type::String
     references_one :product_reference, to: ProductReference
     references_one :buying_option_reference, to: BuyingOptionReference
