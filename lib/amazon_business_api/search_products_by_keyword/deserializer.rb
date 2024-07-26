@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../search_product_result/deserializer'
+
 module AmazonBusinessApi
   class SearchProductsByKeyword
     class Deserializer < AmazonBusinessApi::Deserializer
