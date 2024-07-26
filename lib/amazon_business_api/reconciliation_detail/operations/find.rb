@@ -11,7 +11,7 @@ module AmazonBusinessApi
         end
 
         def url
-          "/reconciliation/2021-01-08/invoices"
+          '/reconciliation/2021-01-08/invoices'
         end
 
         def opts
