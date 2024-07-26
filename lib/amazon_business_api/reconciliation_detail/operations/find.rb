@@ -7,7 +7,20 @@ module AmazonBusinessApi
         private
 
         def hash_to_deserialize
-          response.body || []
+          return [] unless response.body.present?
+
+          # Uncomment if you need "fees" and "transactionDataItems"
+          # response.body['invoiceDetailsByOrderLineItems'].map do |line_item|
+          #   line_item['invoiceDetails'].map do |invoice_detail|
+          #     unless invoice_detail['transactionDataItems'].present?
+          #       invoice_detail['transactionDataItems'] = []
+          #     end
+          #     invoice_detail['fees'] = [] unless invoice_detail['fees'].present?
+          #     invoice_detail
+          #   end
+          # end
+
+          response.body
         end
 
         def url
