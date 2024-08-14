@@ -2,7 +2,7 @@
 
 module AmazonBusinessApi
   class Address < AmazonBusinessApi::Resource
-    # https://developer-docs.amazon.com/amazon-business/docs/reporting-api-v1-reference-1
+    # https://developer-docs.amazon.com/amazon-business/docs/ordering-api-v1-reference
     attribute :address_type, type: LedgerSync::Type::String
     attribute :full_name, type: LedgerSync::Type::String
     attribute :phone_number, type: LedgerSync::Type::String

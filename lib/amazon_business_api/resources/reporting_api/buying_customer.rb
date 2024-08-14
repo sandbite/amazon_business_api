@@ -2,7 +2,7 @@
 
 module AmazonBusinessApi
   class BuyingCustomer < AmazonBusinessApi::Resource
-    # https://developer-docs.amazon.com/amazon-business/docs/reporting-api-v1-reference-1
+    # https://developer-docs.amazon.com/amazon-business/docs/reconciliation-api-v1-reference
     attribute :id, type: LedgerSync::Type::String
     attribute :name, type: LedgerSync::Type::String
     attribute :email, type: LedgerSync::Type::String

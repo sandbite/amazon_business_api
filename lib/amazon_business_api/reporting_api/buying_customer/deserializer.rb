@@ -3,9 +3,9 @@
 module AmazonBusinessApi
   class BuyingCustomer
     class Deserializer < AmazonBusinessApi::Deserializer
-      attribute :id
-      attribute :name
-      attribute :email
+      attribute :id, hash_attribute: :id
+      attribute :name, hash_attribute: :name
+      attribute :email, hash_attribute: :email
     end
   end
 end

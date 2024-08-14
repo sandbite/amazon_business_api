@@ -7,6 +7,7 @@ require_relative 'condition'
 require_relative 'quantity_limits'
 require_relative 'quantity_price_tier'
 require_relative 'buying_restriction'
+require_relative 'tax_exclusive_price'
 require_relative '../types/array'
 
 module AmazonBusinessApi
@@ -26,7 +27,7 @@ module AmazonBusinessApi
     references_one :condition, to: Condition
     references_one :quantity_limits, to: QuantityLimits
     references_many :quantity_price_tiers, to: QuantityPriceTier
-    # references_one :taxExclusivePrice, to: TaxExclusivePrice NOTE: Docs Missing
+    references_one :tax_exclusive_price, to: TaxExclusivePrice
     references_many :badges, to: Type::Array
     references_many :buying_restrictions, to: BuyingRestriction
   end
