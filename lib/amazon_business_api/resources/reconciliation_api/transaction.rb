@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'money'
-require_relative 'buying_customer'
+require_relative '../common/money'
+require_relative '../common/buying_customer'
 require_relative 'associated_transaction_detail'
 require_relative 'transaction_line_item'
 

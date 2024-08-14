@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'buying_customer'
+require_relative '../common/buying_customer'
 require_relative '../common/money'
 require_relative 'line_item'
 require_relative 'shipment'

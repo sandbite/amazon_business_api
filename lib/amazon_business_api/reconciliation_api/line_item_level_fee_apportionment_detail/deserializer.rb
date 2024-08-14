@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../money/deserializer'
+require_relative '../../common/money/deserializer'
 
 module AmazonBusinessApi
   class LineItemLevelFeeApportionmentDetail

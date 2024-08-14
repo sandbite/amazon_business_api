@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../buying_customer/deserializer'
+require_relative '../../common/buying_customer/deserializer'
 require_relative '../../common/money/deserializer'
 require_relative '../line_item/deserializer'
 require_relative '../shipment/deserializer'

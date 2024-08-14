@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../tax_detail/deserializer'
-require_relative '../money/deserializer'
+require_relative '../../common/money/deserializer'
 require_relative '../invoice_level_fee_apportionment_detail/deserializer'
 
 module AmazonBusinessApi

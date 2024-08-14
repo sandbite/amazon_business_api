@@ -218,7 +218,7 @@ resource = AmazonBusinessApi::Reconciliation.new(
 )
 
 
-operation = AmazonBusinessApi::Reconciliation::Operations::Find.new(
+operation = AmazonBusinessApi::Reconciliation::Operations::Search.new(
   client: client,
   resource: resource
 )

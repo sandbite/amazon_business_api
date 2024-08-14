@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../money/deserializer'
-require_relative '../buying_customer/deserializer'
+require_relative '../../common/money/deserializer'
+require_relative '../../common/buying_customer/deserializer'
 require_relative '../associated_transaction_detail/deserializer'
 require_relative '../transaction_line_item/deserializer'
 
