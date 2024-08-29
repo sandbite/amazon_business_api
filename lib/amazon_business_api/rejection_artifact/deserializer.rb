@@ -6,6 +6,8 @@ module AmazonBusinessApi
   class RejectionArtifact
     class Deserializer < AmazonBusinessApi::Deserializer
       attribute :rejection_artifact_type, hash_attribute: :rejectionArtifactType
+
+      # Attributes below are all possible attributes of a RejectionArtifact
       attribute :quantity, hash_attribute: :quantity
       attribute :message, hash_attribute: :message
       attribute :code, hash_attribute: :code

@@ -8,6 +8,8 @@ module AmazonBusinessApi
   class AcceptanceArtifact < AmazonBusinessApi::Resource
     # https://developer-docs.amazon.com/amazon-business/docs/ordering-api-v1-reference
     attribute :acceptance_artifact_type, type: LedgerSync::Type::String
+
+    # Attributes below are all possible attributes of an AcceptanceArtifact
     attribute :identifier, type: LedgerSync::Type::String
     attribute :lower_boundary, type: LedgerSync::Type::String
     attribute :upper_boundary, type: LedgerSync::Type::String

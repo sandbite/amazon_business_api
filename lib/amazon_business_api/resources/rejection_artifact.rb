@@ -6,6 +6,8 @@ module AmazonBusinessApi
   class RejectionArtifact < AmazonBusinessApi::Resource
     # https://developer-docs.amazon.com/amazon-business/docs/ordering-api-v1-reference
     attribute :rejection_artifact_type, type: LedgerSync::Type::String
+
+    # Attributes below are all possible attributes of a RejectionArtifact
     attribute :quantity, type: LedgerSync::Type::Integer
     attribute :message, type: LedgerSync::Type::String
     attribute :code, type: LedgerSync::Type::String
