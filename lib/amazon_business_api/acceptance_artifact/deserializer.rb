@@ -13,11 +13,13 @@ module AmazonBusinessApi
       attribute :identifier, hash_attribute: :identifier
       attribute :lower_boundary, hash_attribute: :lowerBoundary
       attribute :upper_boundary, hash_attribute: :upperBoundary
-      references_one :amount, deserializer: Money::Deserializer,  hash_attribute: :amount
+      references_one :amount, deserializer: Money::Deserializer, hash_attribute: :amount
       attribute :category, hash_attribute: :category
       attribute :type, hash_attribute: :type
-      references_many :packages, deserializer: Package::Deserializer,  hash_attribute: :packages
-      references_many :package_references, deserializer: PackageReference::Deserializer,  hash_attribute: :package_references
+      # references_many :packages, deserializer: Package::Deserializer,
+      #                 hash_attribute: :packages
+      # references_many :package_references, deserializer: PackageReference::Deserializer,
+      #                 hash_attribute: :package_references
       attribute :quantity, hash_attribute: :quantity
     end
   end

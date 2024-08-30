@@ -16,8 +16,8 @@ module AmazonBusinessApi
     references_one :amount, to: Money
     attribute :category, type: LedgerSync::Type::String
     attribute :type, type: LedgerSync::Type::String
-    references_many :packages, to: Package
-    references_many :package_references, to: PackageReference
+    # references_many :packages, to: Package
+    # references_many :package_references, to: PackageReference
     attribute :quantity, type: LedgerSync::Type::Integer
   end
 end
