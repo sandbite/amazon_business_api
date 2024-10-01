@@ -8,6 +8,7 @@ module AmazonBusinessApi
       include AmazonBusinessApi::Operation::Mixin
 
       def operate
+        client.trace_response(response)
         return failure(error) if response.failure?
 
         success(

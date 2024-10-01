@@ -27,7 +27,7 @@ module AmazonBusinessApi
     }.freeze
 
     def initialize(client_id:, client_secret:, email:, refresh_token:, save_access_token:, # rubocop:disable Metrics/ParameterLists
-                   get_access_token:, region: :us, debug: false)
+                   get_access_token:, trace_response: nil, region: :us, debug: false)
       @region = REGIONS.fetch(region.to_sym)
       @client_id = client_id
       @client_secret = client_secret
@@ -35,11 +35,18 @@ module AmazonBusinessApi
       @refresh_token = refresh_token
       @save_access_token = save_access_token
       @get_access_token = get_access_token
+      @trace_response = trace_response
       @debug = debug
     end
 
     def access_token_key
       Digest::MD5.hexdigest("#{client_id} #{refresh_token}")
+    end
+
+    def trace_response(response)
+      return if @trace_response.nil?
+
+      @trace_response.call(response)
     end
 
     def access_token
