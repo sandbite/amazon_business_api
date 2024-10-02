@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../money'
+require_relative 'money'
 
 module AmazonBusinessApi
   class PlaceOrderExpectation < AmazonBusinessApi::Resource
