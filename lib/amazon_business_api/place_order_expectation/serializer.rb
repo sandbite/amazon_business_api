@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../amount/serializer'
+require_relative '../money/serializer'
 
 module AmazonBusinessApi
   class PlaceOrderExpectation
@@ -8,7 +8,7 @@ module AmazonBusinessApi
       attribute :externalId, resource_attribute: :external_id
       attribute :expectationType, resource_attribute: :expectation_type
       attribute :source, resource_attribute: :source
-      references_one :amount, resource_attribute: :amount, serializer: Amount::Serializer
+      references_one :amount, resource_attribute: :amount, serializer: Money::Serializer
     end
   end
 end
